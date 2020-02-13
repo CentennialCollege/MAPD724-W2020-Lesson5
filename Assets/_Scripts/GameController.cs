@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GameController : MonoBehaviour
@@ -28,6 +29,10 @@ public class GameController : MonoBehaviour
       set {
         _lives = value;
         LivesLabel.text = "Lives: " + _lives.ToString();
+        if(_lives < 1)
+        {
+          SceneManager.LoadScene("End");
+        }
       }
   }
 
