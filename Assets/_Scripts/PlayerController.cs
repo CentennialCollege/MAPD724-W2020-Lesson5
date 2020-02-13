@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Camera camera;
+    public GameController gameController;
 
+    [Header("Sound Effects")]
     public AudioSource yaySound;
 
     public AudioSource thunderSound;
@@ -43,9 +45,11 @@ public class PlayerController : MonoBehaviour
       {
         case "Island":
           yaySound.Play();
+          gameController.Score += 100;
         break;
         case "Cloud":
           thunderSound.Play();
+          gameController.Lives -= 1;
         break;
       }
     }
